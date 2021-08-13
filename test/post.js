@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import request from '../config/common';
-import { createRandomUser } from '../helper/user_helper';
+import { createRandomUser, createRandomUserfaker } from '../helper/user_helper';
 const faker = require('faker');
 
 const Token =
@@ -10,7 +10,8 @@ describe('User Posts', () => {
     let postID,UserID;
 
     before(async() => {
-        UserID = await createRandomUser();
+        // UserID = await createRandomUser();
+        UserID = await createRandomUserfaker();
     });
 
     it.only('/posts', async() => {
@@ -25,7 +26,7 @@ describe('User Posts', () => {
             .set("Authorization",`Bearer ${Token}`)
             .send(data);
 
-        console.log(data)
+        // console.log(data)
         expect(PostRes.body.data).to.deep.include(data);
         postID = PostRes.body.data.id;
     });
