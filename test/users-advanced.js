@@ -22,7 +22,7 @@ describe('USERS',()=>{
                 .then((res)=>{
                     expect(res.body.data).to.deep.include(data);
                     UserID = res.body.data.id;
-                    console.log(res.body)
+                    console.log(res.body);
             });
         });
     });
