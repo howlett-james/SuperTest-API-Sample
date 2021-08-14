@@ -1,10 +1,10 @@
+require('dotenv').config();
 import { expect } from 'chai';
 import request from '../config/common';
 import { createRandomUser, createRandomUserfaker } from '../helper/user_helper';
 const faker = require('faker');
 
-const Token =
-    '2719e848f891dcc82938d0df6045b6bc6a735c4c641060d5015739aa58821f28';
+const Token = process.env.User_Token;
 
 describe('User Posts', () => {
     let postID,UserID;
